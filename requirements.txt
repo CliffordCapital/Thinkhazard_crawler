@@ -1,0 +1,14 @@
+streamlit
+scrapy
+pandas
+requests
+selenium
+python-time
+beautifulsoup4
+lxml
+openpyxl
+webdriver-manager
+setuptools
+undetected-chromedriver
+XlsxWriter
+openpyxl
