@@ -49,7 +49,7 @@ def scrape_region(region):
 if __name__ == '__main__':
     df = pd.read_excel(input_path)
     df = df[90:] #EDIT THIS; BATCH NUMBER
-    regions_to_scrape = df['Region'].tolist()
+    regions_to_scrape = df['region'].tolist()
 
     num_processes = multiprocessing.cpu_count()  # Use the number of available CPU cores
     pool = multiprocessing.Pool(processes=num_processes)
