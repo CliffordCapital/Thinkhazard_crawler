@@ -3,8 +3,8 @@ import pandas as pd
 from scrapy.crawler import CrawlerProcess
 
 #EDIT FILE NAME
-input_path = 'get_disaster.xlsx'
-output_path = 'scraped_disaster.csv'
+input_path = 'Scraper_input_GH_Nov_2023.xlsx'
+output_path = 'scraped_disaster_data.csv'
 
 #CRAWLING PROCESS
 class DisasterItem(scrapy.Item):
@@ -24,18 +24,17 @@ class MySpider(scrapy.Spider):
 
     urls_df = pd.read_excel(input_path)
     urls_df = urls_df[:10] #EDIT THIS; BATCH NUMBER
-    urls_dict = urls_df.set_index("region")[['url', 'region_hl', 'country']].to_dict(orient = 'index')
+    #urls_dict = urls_df.set_index("region")[['url', 'region_hl', 'country']].to_dict(orient = 'index')
     
-
     def start_requests(self):
-        for region, data in self.urls_dict.items():
+        for index, row in self.urls_df.iterrows():
             yield scrapy.Request(
-                url=data['url'],
+                url=row['url'],
                 callback=self.parse_region,
-                meta={'region': region,
-                      'start_url': data['url'],
-                      'region_hl': data['region_hl'],
-                      'country': data['country']}
+                meta={'region': row['region'],
+                      'start_url': row['url'],
+                      'region_hl': row['region_hl'],
+                      'country': row['country']}
             )
 
     def parse_region(self, response):
