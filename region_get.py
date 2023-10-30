@@ -3,8 +3,8 @@ import pandas as pd
 from scrapy.crawler import CrawlerProcess
 
 #EDIT FILE NAME
-input_path = 'get_regions.xlsx'
-output_path = 'scraped_regions.csv'
+input_path = 'Scraper_input_GH_Nov_2023.xlsx'
+output_path = 'scraped_regions_data.csv'
 
 #SCRAPING LOGIC
 class DisasterItem(scrapy.Item):
