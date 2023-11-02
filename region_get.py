@@ -44,8 +44,6 @@ class MySpider_region(scrapy.Spider):
         region_gran = response.xpath('/html/body/div[1]/div[2]/h2/text()').get()
         print('region_gran', region_gran)
 
-
-
         self.df.loc[len(self.df)] = [country, region_hl, region_gran, start_url]
         self.df = self.df.fillna('').applymap(str.strip)
         print(self.df)
