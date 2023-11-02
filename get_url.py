@@ -18,7 +18,7 @@ def scrape_region(region, blocked):
         options = Options()
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--headless")
+        options.add_argument("--headless") # comment this if you want to see the code run
 
         service = Service()
         driver = webdriver.Chrome(service=service, options=options)
