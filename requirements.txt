@@ -1,4 +1,3 @@
-streamlit
 scrapy
 pandas
 requests
