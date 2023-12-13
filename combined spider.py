@@ -3,7 +3,7 @@ import pandas as pd
 from scrapy.crawler import CrawlerProcess
 
 start = 0
-end = 50
+end = 500
 
 # SCRAPING LOGIC - First Part
 class SharedData:
@@ -51,7 +51,6 @@ class MySpiderRegion(scrapy.Spider):
         self.shared_data.region_df.loc[len(self.shared_data.region_df)] = [country, region_hl, region_gran, start_url]
         self.shared_data.region_df = self.shared_data.region_df.fillna('').apply(lambda x: x.map(str.strip) if x.dtype == 'O' else x)
 
-        #print('shared data part 1', self.shared_data.region_df)
 
 # CRAWLING PROCESS - Second Part
 class DisasterItem(scrapy.Item):
