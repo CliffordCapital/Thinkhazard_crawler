@@ -49,7 +49,6 @@ class MySpiderRegion(scrapy.Spider):
             region_gran = ''
 
         self.shared_data.region_df.loc[len(self.shared_data.region_df)] = [country, region_hl, region_gran, start_url]
-        #self.shared_data.region_df = self.shared_data.region_df.fillna('').applymap(str.strip)
         self.shared_data.region_df = self.shared_data.region_df.fillna('').apply(lambda x: x.map(str.strip) if x.dtype == 'O' else x)
 
         #print('shared data part 1', self.shared_data.region_df)
